@@ -22,11 +22,16 @@ public class Insertion
     
     
     while(b>=0 && arr[b] >a) {
-        
+        arr[b+1] = arr[b];
+        b = b-1;
     }
+    //arr[b +1] = a;
     
 
   }
+  
+  return arr;
+  
 }
   
   public static void main(String[] args) {
