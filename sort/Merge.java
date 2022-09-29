@@ -11,12 +11,41 @@ import java.util.Arrays;
 public class Merge
 {
   
+  
   /**
    * Returns the sorted array
    */
-  public static int[] sort(int[] arr) {
+   public static int[] sort(int[] arr, int start, int end) {
     // Your algorithm goes here!
+    int mid = (start + end) /2;
+    if (start < end) {
+        sort (arr, start, mid);
+        sort (arr, mid +1, end);
+    }
+    
+    int i = 0, first = start, last = mid +1;
+    int [] tmp = new int [end - start + 1];
+    
+    while (first <= mid && last <= end) {
+        if (arr[first] < arr[last] ){
+            tmp [i++] = arr[first++];
+        }
+        else {
+            tmp [i++] = arr[last++];
+        }
+    }
+    while (first <= mid) { 
+        tmp[i++] = arr[first++]; 
+    }
+    while (last <= end) { 
+        tmp[i++] = arr[last++]; 
+    } 
+    i = 0;
+    while (start <= end) { 
+        arr[start++] = tmp[i++]; 
+    }
 
+    return arr;
   }
   
   public static void main(String[] args) {
@@ -25,7 +54,7 @@ public class Merge
       73,54,51,25,33,20,52,79,97,70,54,63,49};    
     
     // Test the sort
-    testSort(sort(arr));
+    testSort(sort(arr, 0, arr.length-1));
   }
   
   public static void testSort(int[] arr) {

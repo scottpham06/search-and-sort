@@ -12,15 +12,16 @@ public class Binary
   /**
    * Returns the index of the target value, or -1 if not found
    */
-  public static int search(int[] arr, int target) {
+  public static int search(int[] arr, int target, int l, int r) {
     // Your algorithm goes here!
     // Note... I know that the standard Java Arrays class has a method called
     // binarySearch.  If you use it for testing, but you need to implement the algorithm
     // to get the point!
     
+    
   }
   
-  public static void main(String[] args) {
+    public static void main(String[] args) {
     int[] arr = {53,85,93,25,39,27,42,5,24,45,33,51,5,80,4,7,91,
       31,66,71,32,19,79,58,61,82,89,63,7,4,50,10,48,24,75,19,22,
       73,54,51,25,33,20,52,79,97,70,54,63,49};
@@ -28,6 +29,16 @@ public class Binary
     // Remember that a binary search requires a sorted array!
     // You can use one of your sorting methods here.
     
+    for (int i = 1; i<arr.length; i++ ) {
+    int a = arr[i];
+    int b =  i - 1;
+    
+        while(b>=0 && arr[b] >a) {
+        arr[b+1] = arr[b];
+        b = b-1;
+        } 
+      }
+  
 
     ////////////////////////////////////////////////////////////
     // Do not change anything below this line!!
